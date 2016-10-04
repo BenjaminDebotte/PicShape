@@ -1,9 +1,0 @@
-[submodule "front"]
-	path = front
-	url = https://github.com/PicShape/front
-[submodule "android"]
-	path = android
-	url = https://github.com/PicShape/android
-[submodule "engine"]
-	path = engine
-	url = https://github.com/PicShape/engine
