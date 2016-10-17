@@ -1,0 +1,22 @@
+{
+  "name": "picshape-front",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PicShape/front.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PicShape/front/issues"
+  },
+  "homepage": "https://github.com/PicShape/front#readme",
+  "dependencies": {
+    "react": "^15.3.2"
+  }
+}

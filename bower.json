@@ -1,0 +1,21 @@
+{
+  "name": "picshape-front",
+  "homepage": "https://github.com/PicShape/front",
+  "authors": [
+    "Benjamin Debotté <benjamin.debotte@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "bootstrap4#^3.3.7"
+  }
+}
