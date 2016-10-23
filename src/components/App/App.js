@@ -70,7 +70,7 @@ class App extends Component {
 
             <div className="col-md-4 col-md-offset-4">
                 <form>
-                    <div class="form-horizontal">
+                    <div className="form-horizontal">
                         <label className="btn btn-primary btn-file"> {this.state.buttonText}
                         <input type='file' encType='multipart/form-data' id='file_to_upload' name='photo' style={{display: "none"}}/>
                         </label>
