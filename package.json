@@ -4,19 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/PicShape/front.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/PicShape/front/issues"
-  },
-  "homepage": "https://github.com/PicShape/front#readme",
-  "dependencies": {
-    "react": "^15.3.2"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+},
+    "devDependencies": {
+      "react-scripts": "0.6.1"
+    },
+    "dependencies": {
+      "react": "^15.3.2",
+      "react-dom": "^15.3.2"
+    },
+    "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test --env=jsdom",
+      "eject": "react-scripts eject"
+    }
   }
-}
