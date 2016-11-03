@@ -9,9 +9,11 @@
 
 .App-header {
   background-color: #4a988a;
-  height: 150px;
-  padding: 20px;
+  height: 170px;
+  padding: 50px;
   color: white;
+  background-image: url("back_welcome.jpg");
+  background-position-y: -140px;
 }
 
 .App-intro {
@@ -21,4 +23,15 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.colonne {
+    float: left;
+    width: 33.333333%;
+    margin-top: 15px;
+}
+
+.colonne_2 {
+    margin-top: 15px;
+    cursor: pointer;
 }

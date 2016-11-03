@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './logo.png';
 import './App.css';
 
 import request from 'superagent';
@@ -15,13 +15,42 @@ class App extends Component {
             buttonText: 'Browse..'
         }
     }
+
+    _handleImageChange(input) {
+          console.log("_handleImageChange");
+          input.preventDefault();
+
+          let reader = new FileReader();
+          let file = input.target.files[0];
+
+          reader.onloadend = () => {
+            this.setState({baseImg: reader.result,convertedImgLink: reader.result});
+          }
+          reader.readAsDataURL(file)
+    }
+
+    _changeImage(input) {
+        console.log("clickOnImg");
+        if (document.getElementById("convertedImg").src == this.state.convertedImgLink)
+        {
+            document.getElementById("convertedImg").src = this.state.baseImg;
+        }
+        else
+        {
+            document.getElementById("convertedImg").src = this.state.convertedImgLink;
+        }
+    }
+
     onClick(file) {
 
         var files = document.getElementById('file_to_upload').files;
+
         var formData = new FormData();
 
         if (files.hasOwnProperty(0) && files[0] instanceof File)
             formData.append('photo', files[0]);
+            formData.append('iter',300);
+            formData.append('mode',0);
 
             this.setState({buttonText: 'Sending..'});
 
@@ -29,7 +58,6 @@ class App extends Component {
         var req = request
             .post('http://localhost:8080/api/picshape/convert')
             .send(formData)
-
 
         console.log(req);
 
@@ -39,21 +67,20 @@ class App extends Component {
               }
               console.log(res);
               var body = JSON.parse(res.text);
-              console.log(body);
+              console.log("body : " + body);
               this.setState({convertedImgLink: body.url});
               console.log(this.state);
-
+              this.setState({buttonText: 'Browse..'});
           });
+
 }
 
   render() {
      const thumbnail = (this.state.convertedImgLink !== '' ? (
      <div className="row">
-     <div className="col-md-4">
-     </div>
-       <div className="col-md-4">
-         <a href="#" className="thumbnail">
-           <img src={this.state.convertedImgLink} width="200px" alt=""/>
+       <div className="colonne_2">
+         <a className="thumbnail">
+           <img onClick={this._changeImage.bind(this)} id="convertedImg" src={this.state.convertedImgLink} width="700px" alt="" onMouseOver=""/>
          </a>
        </div>
      </div>
@@ -66,14 +93,14 @@ class App extends Component {
           <h2>PicShape</h2>
         </div>
         <div className="row">
-            <div className="col-md-4">
+            <div className="colonne">
             </div>
 
-            <div className="col-md-4 col-md-offset-4">
+            <div className="colonne col-md-offset-4">
                 <form>
                     <div className="form-horizontal">
                         <label className="btn btn-primary btn-file"> {this.state.buttonText}
-                        <input type='file' encType='multipart/form-data' id='file_to_upload' name='photo' style={{display: "none"}}/>
+                        <input onChange={this._handleImageChange.bind(this)} type='file' encType='multipart/form-data' id='file_to_upload' name='photo' style={{display: "none"}}/>
                         </label>
                     </div>
                     </form>
