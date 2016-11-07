@@ -9,8 +9,9 @@
 .colonne_2 {
     margin-top: 15px;
     padding-top: 15px;
+    padding-bottom: 15px;
     cursor: pointer;
-    height: 420px;
+    height: 100%;
     border-width:2px;
     border-style:dashed;;
     border-color:black;
