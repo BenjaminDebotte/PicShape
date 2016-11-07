@@ -1,0 +1,12 @@
+.Footer-core {
+  background-color: #0275d8;
+  height: 100px;
+  padding: 50px;
+  color: #eceeef;
+  margin-top: 30px;
+  }
+
+.Footer__copyrightText{
+  text-align: center;
+  margin-top: 10px;
+  }

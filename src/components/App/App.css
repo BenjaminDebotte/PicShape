@@ -2,36 +2,16 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #4a988a;
-  height: 170px;
-  padding: 50px;
-  color: white;
-  background-image: url("back_welcome.jpg");
-  background-position-y: -140px;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 .colonne {
-    float: left;
-    width: 33.333333%;
     margin-top: 15px;
 }
 
 .colonne_2 {
     margin-top: 15px;
+    padding-top: 15px;
     cursor: pointer;
+    height: 420px;
+    border-width:2px;
+ border-style:dotted;
+ border-color:black;
 }

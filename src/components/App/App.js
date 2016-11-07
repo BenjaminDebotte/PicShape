@@ -84,18 +84,10 @@ class App extends Component {
          </a>
        </div>
      </div>
- ) : "" );
+ ) : <div className="colonne_2"></div> );
     return (
-
       <div className="container App">
-        <div className="row App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>PicShape</h2>
-        </div>
         <div className="row">
-            <div className="colonne">
-            </div>
-
             <div className="colonne col-md-offset-4">
                 <form>
                     <div className="form-horizontal">
@@ -108,7 +100,6 @@ class App extends Component {
             </div>
         </div>
         {thumbnail}
-
       </div>
     );
   }
