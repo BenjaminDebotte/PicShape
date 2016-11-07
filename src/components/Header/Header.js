@@ -11,6 +11,14 @@ class Header extends Component {
             <img src={logo} className="Header-logo" alt="logo" />
             <h2>PicShape</h2>
           </div>
+
+          <ul className="row">
+            <li><a className="active" href="#home">Home</a></li>
+            <li><a href="">Login</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="">About</a></li>
+        </ul>
+
         </div>
       );
     }

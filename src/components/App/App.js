@@ -91,6 +91,7 @@ class App extends Component {
  </div> );
     return (
       <div className="container App">
+        {thumbnail}
         <div className="row">
             <div className="colonne col-md-offset-4">
                 <form>
@@ -103,7 +104,7 @@ class App extends Component {
                     <Button onClick={this.onClick.bind(this)} >Send</Button>
             </div>
         </div>
-        {thumbnail}
+
       </div>
     );
   }
