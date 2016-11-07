@@ -12,6 +12,6 @@
     cursor: pointer;
     height: 420px;
     border-width:2px;
- border-style:dotted;
- border-color:black;
+    border-style:dashed;;
+    border-color:black;
 }

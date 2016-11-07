@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.png';
 import './App.css';
 
 import request from 'superagent';
@@ -49,14 +48,15 @@ class App extends Component {
 
         if (files.hasOwnProperty(0) && files[0] instanceof File)
             formData.append('photo', files[0]);
-            formData.append('iter',300);
+            formData.append('iter',10);
             formData.append('mode',0);
 
             this.setState({buttonText: 'Sending..'});
 
 
         var req = request
-            .post('http://localhost:8080/api/picshape/convert')
+            //.post('http://localhost:8080/api/picshape/convert')
+            .post('https://picshape-engine.herokuapp.com/api/picshape/convert')
             .send(formData)
 
         console.log(req);
@@ -84,7 +84,11 @@ class App extends Component {
          </a>
        </div>
      </div>
- ) : <div className="colonne_2"></div> );
+ ) : <div className="colonne_2 App" >
+  <a>
+  Choose a picture !
+  </a>
+ </div> );
     return (
       <div className="container App">
         <div className="row">
