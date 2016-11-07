@@ -85,9 +85,11 @@ class App extends Component {
        </div>
      </div>
  ) : <div className="colonne_2 App" >
+  <div className="fill"></div>
   <a>
   Choose a picture !
   </a>
+  <div className="fill"></div>
  </div> );
     return (
       <div className="container App">
