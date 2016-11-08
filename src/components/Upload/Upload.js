@@ -44,13 +44,20 @@ class Upload extends Component {
     onClick(file) {
 
         var files = document.getElementById('file_to_upload').files;
+        var iter = document.getElementById('iter');
+        var mode = document.getElementById('mode');
 
         var formData = new FormData();
 
         if (files.hasOwnProperty(0) && files[0] instanceof File)
             formData.append('photo', files[0]);
-            formData.append('iter',100);
-            formData.append('mode',0);
+
+            formData.append('iter',iter.value);
+            formData.append('mode',mode.value);
+
+            console.log("iter " + iter.value);
+            console.log("mode " + mode.value);
+
 
             this.setState({buttonText: 'Sending..'});
 
@@ -103,6 +110,22 @@ class Upload extends Component {
                         <label className="btn btn-primary btn-file"> {this.state.buttonText}
                         <input onChange={this._handleImageChange.bind(this)} type='file' encType='multipart/form-data' id='file_to_upload' name='photo' style={{display: "none"}}/>
                         </label>
+                        <br></br>
+                        Iteration :
+                        <input id="iter" type="number" min="1" max="500" /><br></br>
+                        Mode :
+                        <select id="mode">
+                          <option value="0">Combo</option>
+                          <option value="1">Triangle</option>
+                          <option value="2">Rectangle</option>
+                          <option value="3">Ellipse</option>
+                          <option value="4">Circle</option>
+                          <option value="5">Rotatedrect</option>
+                          <option value="6">Beziers</option>
+                          <option value="7">Rotatedellipse</option>
+                          <option value="8">Polygon</option>
+                        </select><br></br><br></br>
+
                     </div>
                     </form>
                     <Button onClick={this.onClick.bind(this)} >Send</Button>
