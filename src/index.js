@@ -5,10 +5,10 @@ import { Provider } from 'react-redux'
 import { Router, Route, browserHistory } from 'react-router'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 
-import App from './components/App/App';
-import Login from './components/Account/Login';
+import configureStore from './store/configureStore';
+import getRoutes from './routes';
 
-var reducers = undefined;
+import reducers from './reducers';
 
 // Add the reducer to your store on the `routing` key
 const store = createStore(
@@ -22,13 +22,8 @@ const store = createStore(
 const history = syncHistoryWithStore(browserHistory, store)
 
 ReactDOM.render(
-  <Provider store={store}>
-    { /* Tell the Router to use our enhanced history */ }
-    <Router history={history}>
-      <Route path="/" component={App}>
-        <Route path="/login" component={Login}/>
-      </Route>
-    </Router>
-  </Provider>,
-  document.getElementById('root')
+    <Provider store={store}>
+      <Router history={browserHistory} routes={getRoutes(store)}/>
+    </Provider>,
+    document.getElementById('root')
 )
