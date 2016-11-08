@@ -1,6 +1,7 @@
 import React from 'react';
 import { IndexRoute, Route } from 'react-router';
 import App from './components/App/App';
+import Upload from './components/Upload/Upload';
 import NotFound from './components/NotFound/NotFound';
 import Login from './components/Account/Login';
 import Signup from './components/Account/Signup';
@@ -23,8 +24,8 @@ export default function getRoutes(store) {
 
     return (
         <Route path="/" component={App}>
-            <IndexRoute component={App}/>
-            <Route path="/login" component={Login} onEnter={skipIfAuthenticated} />
+            <IndexRoute component={Upload}/>
+            <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} onEnter={skipIfAuthenticated}/>
             <Route path="/account" component={Profile} onEnter={ensureAuthenticated} />
             <Route path="/forgot" component={Forgot} onEnter={skipIfAuthenticated} />

@@ -11,19 +11,13 @@ import getRoutes from './routes';
 import reducers from './reducers';
 
 // Add the reducer to your store on the `routing` key
-const store = createStore(
-  combineReducers({
-    ...reducers,
-    routing: routerReducer
-  })
-)
+const store = configureStore(window.INITIAL_STATE);
 
-// Create an enhanced history that syncs navigation events with the store
-const history = syncHistoryWithStore(browserHistory, store)
+
 
 ReactDOM.render(
     <Provider store={store}>
-      <Router history={browserHistory} routes={getRoutes(store)}/>
+        <Router history={browserHistory} routes={getRoutes(store)}/>
     </Provider>,
     document.getElementById('root')
 )

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import Upload from '../Upload/Upload';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
@@ -11,7 +10,7 @@ class App extends Component {
     return (
       <div>
         <Header/>
-        <Upload/>
+        {this.props.children}
         <Footer/>
       </div>
     );
