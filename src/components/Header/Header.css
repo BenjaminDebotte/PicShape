@@ -4,7 +4,7 @@
 
 .Header-logo {
   animation: Header-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 30px;
 }
 
 .Header-core {
@@ -21,31 +21,17 @@
   to { transform: rotate(360deg); }
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-    text-align: center;
-}
 
-li {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover:not(.active) {
-    background-color: #111;
-}
-
-.active {
-    background-color: #0275d8;
+#navbar-primary .navbar-nav {
+//  background: #ededed;
+  width: 100%;
+  text-align: center;
+  > li {
+    display: inline-block;
+    float: none;
+    > a {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
 }

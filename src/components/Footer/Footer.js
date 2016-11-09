@@ -5,11 +5,12 @@ class Footer extends Component {
 
     render() {
       return (
-			<div className="container Footer">
-					<div className="row Footer__copyrightText">
-						© 2016 Le Conseil, Inc., All Rights Reserved.
-					</div>
-			</div>
+          <footer className="footer">
+            <div className="container">
+              <span className="text-muted">© 2016 Le Conseil, Inc., All Rights Reserved.</span>
+            </div>
+        </footer>
+
       );
     }
     }

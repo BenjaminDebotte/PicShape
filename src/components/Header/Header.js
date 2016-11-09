@@ -10,18 +10,27 @@ class Header extends Component {
         const active = { borderBottomColor: '#93bf41' };
 
       return (
-        <div className="container Header">
-          <div className="row Header-core">
-            <img src={logo} className="Header-logo" alt="logo" />
-            <h2>PicShape</h2>
-          </div>
+          <nav className="navbar navbar-dark bg-inverse">
+          <a className="navbar-brand" href="#">
+           <img className="Header-logo" src="logo.ico" width="30" height="30" alt=""/>
+         </a>
+         
+          <ul className="nav navbar-nav">
+              <li className="nav-item active">
+                <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">Features</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">Pricing</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">About</a>
+              </li>
+            </ul>
 
-          <ul className="nav navbar-nav navbar-right">
-             <li><Link to="/login" activeStyle={active}>Login</Link></li>
-             <li><Link to="/signup" activeStyle={active}>Sign up</Link></li>
-           </ul>
-
-        </div>
+          </nav>
       );
     }
     }
