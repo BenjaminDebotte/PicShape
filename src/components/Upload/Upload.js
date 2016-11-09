@@ -100,7 +100,7 @@ class Upload extends Component {
      );
 
     return (
-      <div className="container-fluid">
+      <div className="panel panel-body">
             <div className="row">
                 <div className="col-md-4"></div>
                 <div className="col-md-4">

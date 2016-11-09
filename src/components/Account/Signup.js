@@ -24,7 +24,6 @@ class Signup extends React.Component {
       <div className="login-container container">
         <div className="panel">
           <div className="panel-body">
-            <Messages messages={this.props.messages}/>
             <form onSubmit={this.handleSignup.bind(this)}>
               <legend>Create an account</legend>
               <div className="form-group">
