@@ -30,7 +30,6 @@ class Upload extends Component {
     }
 
     _changeImage(input) {
-        console.log("clickOnImg");
         if (document.getElementById("convertedImg").src === this.state.convertedImgLink)
         {
             document.getElementById("convertedImg").src = this.state.baseImg;
@@ -41,7 +40,7 @@ class Upload extends Component {
         }
     }
 
-    onClick(file) {
+    onClick() {
 
         var files = document.getElementById('file_to_upload').files;
         var iter = document.getElementById('iter');
@@ -63,8 +62,8 @@ class Upload extends Component {
 
 
         var req = request
-            //.post('http://localhost:8080/api/picshape/convert')
-            .post('https://picshape-engine.herokuapp.com/api/picshape/convert')
+            .post('http://localhost:8080/api/picshape/convert')
+            //.post('https://picshape-engine.herokuapp.com/api/picshape/convert')
             .send(formData)
 
         console.log(req);

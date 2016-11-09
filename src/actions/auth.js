@@ -3,7 +3,13 @@ import cookie from 'react-cookie';
 import { browserHistory } from 'react-router';
 
 export function login(email, password) {
+
+
   return (dispatch) => {
+      dispatch({
+        type: 'CLEAR_MESSAGES'
+      });
+      
     return fetch('http://localhost:8080/api/account/login', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
