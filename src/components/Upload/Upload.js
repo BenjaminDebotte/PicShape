@@ -85,7 +85,7 @@ class Upload extends Component {
   render() {
      const thumbnail = (this.state.convertedImgLink !== '' ? (
                  <a className="thumbnail">
-                  <img className="img-responsive center-block" onClick={this._changeImage.bind(this)} id="convertedImg" src={this.state.convertedImgLink} width="70%" alt="" onMouseOver=""/>
+                  <img className="img-responsive center-block" onClick={this._changeImage.bind(this)} id="convertedImg" src={this.state.convertedImgLink} width="100%" alt="" onMouseOver=""/>
                  </a>
          ) : (
              <div className="colonne_2 upload" >
