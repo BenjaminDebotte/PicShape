@@ -1,17 +1,29 @@
 import React, { Component } from 'react';
 import './About.css';
 
-import request from 'superagent';
-import Button from 'react-button';
-
+import baseImg from './548x430.jpg';
+import convertedImg from './548x430Shaped.jpg';
 
 class About extends Component {
 
   constructor(props) {
       super(props);
       this.state = {
-
+        changeImg: true
     }
+  }
+
+  _changeImage(input) {
+      if (this.state.changeImg)
+      {
+          document.getElementById("convertedImg").src = convertedImg;
+          this.setState({changeImg: false});
+      }
+      else
+      {
+          document.getElementById("convertedImg").src = baseImg;
+          this.setState({changeImg: true});
+      }
   }
 
 render() {
@@ -22,17 +34,18 @@ render() {
     <div id="about-us" className="clear">
 
       <div id="about-intro" className="clear">
-        <div className="three_fifth first"><img className="imgholder"  src={require('./548x430.jpg')} alt="" /></div>
+        <div className="three_fifth first"><img className="imgholder myImg" onClick={this._changeImage.bind(this)} id="convertedImg" src={baseImg} alt="" onMouseOver=""/>
+       </div>
         <div className="two_fifth">
           <h2>ABOUT US</h2>
 
           <p>The Picshape project is composed of a front-end, back-end and an Android application.</p>
           <p>Picshape use a Node.js back-end hosting the API for image transformation and a front-end using React and Redux.
           It is a 3rd year project part of 'PicShape',
-          a cloud image converter using fogleman 's primitive project.</p>
+          a cloud image converter using fogleman primitive project.</p>
 
 
-          <h2>Vivamuslibero Auguer</h2>
+          <h2>Android Application</h2>
           <ul>
             <li>Aliquam venenatis leo et orci.</li>
             <li>Pellentesque eleifend vulputate massa.</li>
