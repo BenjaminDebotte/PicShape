@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+
 import './Upload.css';
 
 import request from 'superagent';
@@ -11,7 +13,7 @@ class Upload extends Component {
         this.state = {
             convertedImgLink: '',
             baseImg: '',
-            buttonText: 'Browse..',
+            buttonText: 'Browse',
             onLoad: 'False'
         }
     }
@@ -51,19 +53,18 @@ class Upload extends Component {
         if (files.hasOwnProperty(0) && files[0] instanceof File)
             formData.append('photo', files[0]);
 
-            formData.append('iter',iter.value);
-            formData.append('mode',mode.value);
+        formData.append('iter',iter.value);
+        formData.append('mode',mode.value);
 
-            console.log("iter " + iter.value);
-            console.log("mode " + mode.value);
+        console.log("iter " + iter.value);
+        console.log("mode " + mode.value);
 
 
-            this.setState({buttonText: 'Sending..'});
-
+        this.setState({buttonText: 'Sending..'});
 
         var req = request
             .post('http://localhost:8080/api/picshape/convert')
-            //.post('https://picshape-engine.herokuapp.com/api/picshape/convert')
+            .set('Authorization', 'token: ' + this.props.token)
             .send(formData)
 
         console.log(req);
@@ -152,4 +153,11 @@ class Upload extends Component {
   }
 }
 
-export default Upload;
+const mapStateToProps = (state) => {
+  return {
+    token: state.auth.token,
+    messages: state.messages
+  };
+};
+
+export default connect(mapStateToProps)(Upload);

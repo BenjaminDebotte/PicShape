@@ -48,19 +48,19 @@ class Profile extends React.Component {
               <legend>Profile Information</legend>
               <div className="form-group row">
                 <label htmlFor="email">Email</label>
-                <div class="col-xs-10">
+                <div className="col-xs-10">
                  <input type="email" name="email" id="email" className="form-control" value={this.state.email} onChange={this.handleChange.bind(this)}/>
                  </div>
               </div>
               <div className="form-group row">
                 <label htmlFor="name" >Name</label>
-                <div class="col-xs-10">
+                <div className="col-xs-10">
                   <input type="text" name="name" id="name" className="form-control" value={this.state.name} onChange={this.handleChange.bind(this)}/>
                 </div>
               </div>
               <div className="form-group row">
                 <label>Gender</label>
-                <div class="col-xs-10">
+                <div className="col-xs-10">
                 <label className="radio-inline radio col-sm-4">
                   <input type="radio" className="form-check-input" name="gender" value="male" checked={this.state.gender === 'male'} onChange={this.handleChange.bind(this)}/><span>Male</span>
                 </label>
@@ -71,13 +71,13 @@ class Profile extends React.Component {
               </div>
               <div className="form-group row">
                 <label htmlFor="location" >Location</label>
-                <div class="col-xs-10">
+                <div className="col-xs-10">
                   <input type="text" name="location" id="location" className="form-control" value={this.state.location} onChange={this.handleChange.bind(this)}/>
                   </div>
               </div>
               <div className="form-group row">
                 <label htmlFor="website" >Website</label>
-                <div class="col-xs-10">
+                <div className="col-xs-10">
               <input type="text" name="website" id="website" className="form-control" value={this.state.website} onChange={this.handleChange.bind(this)}/>
               </div>
               </div>
