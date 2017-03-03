@@ -10,15 +10,17 @@ export function convertFile(file, config, token) {
         var formData = new FormData();
         formData.append('photo', file);
 
-        request
+        return request
         .post('http://localhost:8080/api/picshape/convert')
         .set('Authorization', 'token: ' + token)
+        .accept('application/json')
         .send(formData)
         .then((res) => {
-            console.log('Success');
-            console.log(res);
+            dispatch({
+                type: 'UPLOAD_SUCCESS',
+                convertedImgLink: res.body.url
+            });
         }, (err) => {
-            console.log('Error');
             console.log(err);
         });
     };

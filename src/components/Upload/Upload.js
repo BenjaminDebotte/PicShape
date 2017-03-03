@@ -14,7 +14,6 @@ class Upload extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            convertedImgLink: '',
             baseImg: '',
             buttonText: 'Browse',
             onLoad: 'False'
@@ -35,13 +34,13 @@ class Upload extends Component {
     }
 
     _changeImage(input) {
-        if (document.getElementById("convertedImg").src === this.state.convertedImgLink)
+        if (document.getElementById("convertedImg").src === this.props.convertedImgLink)
         {
             document.getElementById("convertedImg").src = this.state.baseImg;
         }
         else
         {
-            document.getElementById("convertedImg").src = this.state.convertedImgLink;
+            document.getElementById("convertedImg").src = this.props.convertedImgLink;
         }
     }
 
@@ -58,9 +57,9 @@ class Upload extends Component {
 }
 
   render() {
-     const thumbnail = (this.state.convertedImgLink !== '' ? (
+     const thumbnail = (this.props.convertedImgLink !== '' ? (
                  <a className="thumbnail">
-                  <img className="img-responsive center-block" onClick={this._changeImage.bind(this)} id="convertedImg" src={this.state.convertedImgLink} width="70%" alt="" onMouseOver=""/>
+                  <img className="img-responsive center-block" onClick={this._changeImage.bind(this)} id="convertedImg" src={this.props.convertedImgLink} width="70%" alt="" onMouseOver=""/>
                  </a>
          ) : (
              <div className="colonne_2 upload" >
@@ -122,7 +121,8 @@ class Upload extends Component {
 const mapStateToProps = (state) => {
   return {
     token: state.auth.token,
-    messages: state.messages
+    messages: state.messages,
+    convertedImgLink: state.upload.convertedImgLink
   };
 };
 
