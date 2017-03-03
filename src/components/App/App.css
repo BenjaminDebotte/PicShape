@@ -9,14 +9,16 @@ html {
 
 body {
     margin-bottom: 44px;
-    background-image: url("../../images/back_welcome.jpg");
+    background: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),url("../../images/back_welcome_picshape.jpg");
+
+
     background-repeat: no-repeat center center fixed;
     background-size: cover;
 }
 
 .panel {
   margin-top: 75px;
-  background-color: rgba(255,255,255,0.88);
+  background-color: rgba(255,255,255,0.95);
   border: 1px solid transparent;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
