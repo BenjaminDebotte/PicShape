@@ -28,6 +28,7 @@ class About extends Component {
 
 render() {
     return (
+        <div className="panel panel-body container">
       <div className="wrapper row2">
       <div id="container" className="clear">
 
@@ -88,7 +89,7 @@ render() {
           <li className="one_fifth">
             <div className="figure"><img src={require('./team-member.gif')} alt="" />
               <div className="figcaption">
-                <p className="team_name">Gaillaume</p>
+                <p className="team_name">Guillaume</p>
                 <p className="team_title">Job Title Here</p>
               </div>
             </div>
@@ -105,6 +106,7 @@ render() {
       </div>
       </div>
   </div>
+</div>
 </div>
     );
   }
