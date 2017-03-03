@@ -24,7 +24,7 @@ export default function getRoutes(store) {
 
     return (
         <Route path="/" component={App}>
-            <IndexRoute component={Upload}/>
+            <IndexRoute component={Upload} onEnter={ensureAuthenticated}/>
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} onEnter={skipIfAuthenticated}/>
             <Route path="/account" component={Profile} onEnter={ensureAuthenticated} />

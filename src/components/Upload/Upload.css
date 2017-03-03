@@ -12,9 +12,14 @@
     padding-bottom: 15px;
     cursor: pointer;
     height: 100%;
+    width: 80%;
     border-width:2px;
     border-style:dashed;;
     border-color:black;
+}
+
+.preview {
+    text-align: -webkit-center;
 }
 
 .fill {
