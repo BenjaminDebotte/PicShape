@@ -9,13 +9,14 @@ html {
 
 body {
     margin-bottom: 44px;
-    background:  $body-bg;
+    background-image: url("../../images/back_welcome.jpg");
+    background-repeat: no-repeat center center fixed;
+    background-size: cover;
 }
 
-
 .panel {
-  margin-bottom: 21px;
-  background-color: #fff;
+  margin-top: 75px;
+  background-color: rgba(255,255,255,0.88);
   border: 1px solid transparent;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);

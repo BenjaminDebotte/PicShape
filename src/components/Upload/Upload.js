@@ -100,16 +100,12 @@ class Upload extends Component {
      );
 
     return (
-      <div className="panel panel-body">
-            <div className="row">
-                <div className="col-md-4"></div>
-                <div className="col-md-4">
+      <div className="panel panel-body container">
+            <div className="row preview">
                     {thumbnail}
-                </div>
             </div>
             <div className="row">
-                <div className="col-md-4"></div>
-                <div className="col-md-4 center-block">
+                <div className="center-block">
                     <form>
                         <div className="form-group">
                             Iteration :
@@ -142,10 +138,6 @@ class Upload extends Component {
                         </div>
 
                         </form>
-
-
-
-
                 </div>
             </div>
       </div>
