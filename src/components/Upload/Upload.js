@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
+import { convertFile } from '../../actions/upload';
+
+
 import './Upload.css';
 
 import request from 'superagent';
@@ -48,38 +51,9 @@ class Upload extends Component {
         var iter = document.getElementById('iter');
         var mode = document.getElementById('mode');
 
-        var formData = new FormData();
-
-        if (files.hasOwnProperty(0) && files[0] instanceof File)
-            formData.append('photo', files[0]);
-
-        formData.append('iter',iter.value);
-        formData.append('mode',mode.value);
-
-        console.log("iter " + iter.value);
-        console.log("mode " + mode.value);
-
-
-        this.setState({buttonText: 'Sending..'});
-
-        var req = request
-            .post('http://localhost:8080/api/picshape/convert')
-            .set('Authorization', 'token: ' + this.props.token)
-            .send(formData)
-
-        console.log(req);
-
-        req.end((err,res) => {
-              if(err) {
-                  console.log(err);
-              }
-              console.log(res);
-              var body = JSON.parse(res.text);
-              console.log("body : " + body);
-              this.setState({convertedImgLink: body.url});
-              console.log(this.state);
-              this.setState({buttonText: 'Browse..'});
-          });
+        if (files.hasOwnProperty(0) && files[0] instanceof File){
+            this.props.dispatch(convertFile(files[0], {}, this.props.token));
+        }
 
 }
 
