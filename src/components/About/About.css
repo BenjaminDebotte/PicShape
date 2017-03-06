@@ -11,9 +11,9 @@
 .myImg:hover {opacity: 0.7;}
 
 #about-us{display:block; width:100%; line-height:1.6em;}
-#about-us h2{margin-bottom:40px; padding:0;} /* DEMO USE ONLY - CAN BE DELETED */
+#about-us h2{margin-bottom:10px; padding:0;} /* DEMO USE ONLY - CAN BE DELETED */
 
-#about-us #about-intro{margin-bottom:50px;}
+#about-us #about-intro{margin-bottom:30px;}
 #about-us #about-intro .imgholder{padding:9px;}
 #about-us #about-intro h2{margin-bottom:auto;}
 #about-us #about-intro p{}
@@ -30,7 +30,7 @@
 
 #about-us #team{}
 #about-us #team ul{margin:0; padding:0; list-style:none; text-align:center;}
-#about-us #team ul li{margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid #CCCCCC;}
+#about-us #team ul li{margin-bottom:10px; padding-bottom:0px; border-bottom:1px solid #CCCCCC;}
 #about-us #team ul li .figure{}
 #about-us #team ul li .figure img{padding:9px; border:1px solid #CCCCCC;}
 #about-us #team ul li .figure .figcaption{}
@@ -73,7 +73,7 @@
 
 .one_fifth{width:176px;}
 .two_fifth{width:372px;}
-.three_fifth{width:568px;}
+.three_fifth{width:510px;}
 .four_fifth{width:764px;}
 
 html{overflow-y:scroll;}
@@ -117,7 +117,7 @@ input,textarea,select{font-size:12px;font-family:Georgia,"Times New Roman",Times
 #header #topnav li.last{margin-right:0;}
 #header #topnav li a{color:#C0BAB6;background-color:#232323;}
 #header #topnav li a:hover,#header #topnav li.active a{color:#FF9900;background-color:#232323;}
-#container{padding: 26px 0;}
+#container{padding: 0px 0;}
 #container a{background-color:transparent;}
 #container #portfolio,#container #gallery{margin-bottom:30px;}
 #container .pagination{display:block;width:100%;text-align:center;clear:both;font-family:Verdana,Geneva,sans-serif;}

@@ -52,10 +52,7 @@ render() {
             <li>Pellentesque eleifend vulputate massa.</li>
             <li>Vivamus eleifend sollicitudin eros.</li>
             <li>Maecenas vitae nunc.</li>
-            <li>Ut pretium odio eu nisi.</li>
-            <li>Nam condimentum mi id magna.</li>
-            <li>Pellentesque consectetuer, felis vel rhoncus.</li>
-          </ul>
+            </ul>
         </div>
       </div>
 
