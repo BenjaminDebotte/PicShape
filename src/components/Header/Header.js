@@ -16,38 +16,26 @@ class Header extends Component {
     render() {
         const active = { borderBottomColor: '#93bf41' };
 
-        const rightNav = (this.props.token ?  (
-                <ul className="nav navbar-nav">
-                    <li className="nav-item"><Link className="nav-link" to="/account">My Account</Link></li>
-                    <li className="nav-item"><a className="nav-link" href="#" onClick={this.handleLogout.bind(this)}>Logout</a></li>
-                </ul>
-            ) : (
-            <ul className="nav navbar-nav">
-                <li className="nav-item active">
-                  <Link className="nav-link" to="/" activeStyle={active}>Home</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/login" activeStyle={active}>Login</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/signup" activeStyle={active}>Signup</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/about" activeStyle={active}>About</Link>
-                </li>
-              </ul>
-            )
+        const unloggedComponents = ([
+            <Link className="item" to="/login" activeStyle={active}>Login</Link>,
+            <Link className="item" to="/signup" activeStyle={active}>Signup</Link>
+        ]);
 
-        );
+        const loggedComponents = ([
+            <Link className="item" to="/account">My Account</Link>,
+            <Link className="item" onClick={this.handleLogout.bind(this)}>Logout</Link>
+        ]);
 
       return (
-          <nav className="navbar navbar-dark bg-inverse">
-              <Link className="navbar-brand" to="/">
-               <img className="Header-logo" src="logo.ico" width="30" height="30" alt=""/>
-             </Link>
+          <div className="ui inverted menu">
+            <div className="ui container">
+                <Link className="header item" to="/">Picshape</Link>
+                <Link className="item" to="/" activeStyle={active}>Home</Link>
+                { this.props.token ? loggedComponents : unloggedComponents }
+                <Link className="item" to="/about" activeStyle={active}>About</Link>
+            </div>
+          </div>
 
-             {rightNav}
-          </nav>
       );
     }
     }
