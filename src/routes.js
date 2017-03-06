@@ -8,6 +8,7 @@ import Signup from './components/Account/Signup';
 import Profile from './components/Account/Profile';
 import Forgot from './components/Account/Forgot';
 import Reset from './components/Account/Reset';
+import About from './components/About/About';
 
 
 export default function getRoutes(store) {
@@ -30,7 +31,7 @@ export default function getRoutes(store) {
             <Route path="/account" component={Profile} onEnter={ensureAuthenticated} />
             <Route path="/forgot" component={Forgot} onEnter={skipIfAuthenticated} />
             <Route path='/reset/:token' component={Reset} onEnter={skipIfAuthenticated} />
-
+            <Route path="/about" component={About}/>
             <Route path="*" component={NotFound}/>
         </Route>
     );
