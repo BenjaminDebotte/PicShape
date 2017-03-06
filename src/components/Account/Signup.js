@@ -27,7 +27,7 @@ class Signup extends React.Component {
             <form onSubmit={this.handleSignup.bind(this)}>
               <legend>Create an account</legend>
               <div className="form-group">
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name">Nickname</label>
                 <input type="text" name="name" id="name" placeholder="Name" autoFocus className="form-control" value={this.state.name} onChange={this.handleChange.bind(this)}/>
               </div>
               <div className="form-group">
