@@ -19,6 +19,7 @@ class Header extends Component {
         const rightNav = (this.props.token ?  (
                 <ul className="nav navbar-nav">
                     <li className="nav-item"><Link className="nav-link" to="/account">My Account</Link></li>
+                    <li className="nav-item"><Link className="nav-link" to="/gallery">Gallery</Link></li>
                     <li className="nav-item"><a className="nav-link" href="#" onClick={this.handleLogout.bind(this)}>Logout</a></li>
                 </ul>
             ) : (

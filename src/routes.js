@@ -2,6 +2,7 @@ import React from 'react';
 import { IndexRoute, Route } from 'react-router';
 import App from './components/App/App';
 import Upload from './components/Upload/Upload';
+import Gallery from './components/Gallery/Gallery';
 import NotFound from './components/NotFound/NotFound';
 import Login from './components/Account/Login';
 import Signup from './components/Account/Signup';
@@ -28,6 +29,7 @@ export default function getRoutes(store) {
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} onEnter={skipIfAuthenticated}/>
             <Route path="/account" component={Profile} onEnter={ensureAuthenticated} />
+            <Route path="/gallery" component={Gallery} onEnter={ensureAuthenticated} />
             <Route path="/forgot" component={Forgot} onEnter={skipIfAuthenticated} />
             <Route path='/reset/:token' component={Reset} onEnter={skipIfAuthenticated} />
 
