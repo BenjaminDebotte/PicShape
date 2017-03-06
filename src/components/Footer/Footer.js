@@ -5,7 +5,7 @@ class Footer extends Component {
 
     render() {
       return (
-            <div className="ui inverted vertical fixed footer segment">
+            <div className="ui inverted vertical footer segment">
                 <span className="text-muted">© 2016 Le Conseil, Inc., All Rights Reserved.</span>
             </div>
 
