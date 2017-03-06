@@ -14,7 +14,6 @@ class Upload extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            baseImg: '',
             buttonText: 'Browse',
             onLoad: 'False'
         }
@@ -28,18 +27,21 @@ class Upload extends Component {
           let file = input.target.files[0];
 
           reader.onloadend = () => {
-            this.setState({baseImg: reader.result,convertedImgLink: reader.result});
-          }
+              console.log('On load end');
+              this.props.dispatch({
+                  type: 'LOAD_IMAGE_SUCCESS',
+                  convertedImgLink: reader.result,
+                  baseImg: reader.result
+            });
+        };
           reader.readAsDataURL(file)
     }
 
     _changeImage(input) {
-        if (document.getElementById("convertedImg").src === this.props.convertedImgLink)
-        {
-            document.getElementById("convertedImg").src = this.state.baseImg;
+        if (document.getElementById("convertedImg").src === this.props.convertedImgLink) {
+            document.getElementById("convertedImg").src = this.props.baseImg;
         }
-        else
-        {
+        else {
             document.getElementById("convertedImg").src = this.props.convertedImgLink;
         }
     }
@@ -122,7 +124,8 @@ const mapStateToProps = (state) => {
   return {
     token: state.auth.token,
     messages: state.messages,
-    convertedImgLink: state.upload.convertedImgLink
+    convertedImgLink: state.upload.convertedImgLink,
+    baseImg: state.upload.baseImg
   };
 };
 
