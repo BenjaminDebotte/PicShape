@@ -38,6 +38,7 @@ class Upload extends Component {
     }
 
     _changeImage(input) {
+
         if (document.getElementById("convertedImg").src === this.props.convertedImgLink) {
             document.getElementById("convertedImg").src = this.props.baseImg;
         }
@@ -46,14 +47,15 @@ class Upload extends Component {
         }
     }
 
-    onClick() {
+    onClick(event) {
+        event.preventDefault();
 
         var files = document.getElementById('file_to_upload').files;
-        var iter = document.getElementById('iter');
-        var mode = document.getElementById('mode');
+        var iter = document.getElementById('iter').value;
+        var mode = document.getElementById('mode').value;
 
         if (files.hasOwnProperty(0) && files[0] instanceof File){
-            this.props.dispatch(convertFile(files[0], {}, this.props.token));
+            this.props.dispatch(convertFile(files[0], {iter: iter, mode: mode}, this.props.token));
         }
 
 }
@@ -66,9 +68,9 @@ class Upload extends Component {
          ) : (
              <div>
                   <div className="fill"></div>
-                      <p>
+                      <h1>
                       Choose a picture !
-                      </p>
+                      </h1>
 
                   <div className="fill"></div>
               </div>
@@ -106,7 +108,7 @@ class Upload extends Component {
                             </select>
                         </div>
 
-                                    <Button onClick={this.onClick.bind(this)} >Send</Button>
+                        <button className="ui button" onClick={this.onClick.bind(this)} >Send</button>
 
 
                         </form>

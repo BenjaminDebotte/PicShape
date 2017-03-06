@@ -6,14 +6,17 @@ export function convertFile(file, config, token) {
           type: 'CLEAR_MESSAGES'
         });
 
+
+        console.log(config);
         //Building image data
         var formData = new FormData();
         formData.append('photo', file);
+        formData.append('mode', config.mode);
+        formData.append('iter', config.iter);
 
         return request
         .post('http://localhost:8080/api/picshape/convert')
         .set('Authorization', 'token: ' + token)
-        .accept('application/json')
         .send(formData)
         .then((res) => {
             dispatch({

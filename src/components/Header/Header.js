@@ -3,7 +3,6 @@ import { IndexLink, Link } from 'react-router';
 import { connect } from 'react-redux'
 import { logout } from '../../actions/auth';
 
-import logo from './logo.png';
 import './Header.css';
 
 class Header extends Component {
@@ -29,7 +28,10 @@ class Header extends Component {
       return (
           <div className="ui inverted menu">
             <div className="ui container">
-                <Link className="header item" to="/">Picshape</Link>
+                <Link className="header item" to="/">
+                <img className="logo" src="logo.ico"/>
+                      Picshape
+                  </Link>
                 <Link className="item" to="/" activeStyle={active}>Home</Link>
                 { this.props.token ? loggedComponents : unloggedComponents }
                 <Link className="item" to="/about" activeStyle={active}>About</Link>
