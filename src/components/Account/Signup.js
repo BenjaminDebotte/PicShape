@@ -21,30 +21,29 @@ class Signup extends React.Component {
 
   render() {
     return (
-      <div className="login-container container">
-        <div className="panel">
-          <div className="panel-body">
-            <form onSubmit={this.handleSignup.bind(this)}>
+        <div className="ui container">
+        <div className="ui raised segment">
+
+            <form onSubmit={this.handleSignup.bind(this)} className="ui form">
               <legend>Create an account</legend>
-              <div className="form-group">
+              <div className="field">
                 <label htmlFor="name">Nickname</label>
                 <input type="text" name="name" id="name" placeholder="Name" autoFocus className="form-control" value={this.state.name} onChange={this.handleChange.bind(this)}/>
               </div>
-              <div className="form-group">
+              <div className="field">
                 <label htmlFor="email">Email</label>
                 <input type="email" name="email" id="email" placeholder="Email" className="form-control" value={this.state.email} onChange={this.handleChange.bind(this)}/>
               </div>
-              <div className="form-group">
+              <div className="field">
                 <label htmlFor="password">Password</label>
                 <input type="password" name="password" id="password" placeholder="Password" className="form-control" value={this.state.password} onChange={this.handleChange.bind(this)}/>
               </div>
-              <div className="form-group">
+              <div className="field">
                 <small className="text-muted">By signing up, you agree to the <Link to="/">Terms of Service</Link>.</small>
               </div>
-              <button type="submit" className="btn btn-success">Create an account</button>
+              <button type="submit" className="ui button">Create an account</button>
             </form>
           </div>
-        </div>
         <p className="text-center">
           Already have an account? <Link to="/login"><strong>Log in</strong></Link>
         </p>
