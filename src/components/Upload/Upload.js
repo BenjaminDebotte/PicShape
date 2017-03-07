@@ -62,11 +62,11 @@ class Upload extends Component {
   render() {
      const thumbnail = (this.props.convertedImgLink !== '' ? (
                  <a className="thumbnail">
-                    <img className="ui fluid image" onClick={this._changeImage.bind(this)} id="convertedImg" src={this.props.convertedImgLink} width="70%" alt="" onMouseOver=""/>
+                    <img className="ui fluid image img" onClick={this._changeImage.bind(this)} id="convertedImg" src={this.props.convertedImgLink} width="100%" alt="" onMouseOver=""/>
                  </a>
          ) : (
              <div>
-                  <div className="fill"></div>
+                  <div className="fill img"></div>
                       <h1>
                       Choose a picture !
                       </h1>
