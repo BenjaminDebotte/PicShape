@@ -1,11 +1,22 @@
 import React from "react";
-import request from "superagent";
+import { connect } from 'react-redux'
+
 import Card from "./Card.js";
+import { getPictures } from '../../actions/gallery';
 
 class Gallery extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidMount(){
+      this.props.dispatch(getPictures(this.props.user))
+    }
+
   render() {
     const title =
-      <legend>Your own gallery</legend>
+      <legend>Your own gallery</legend>;
     return (
     <div className="panel panel-body container">
       <div className="row preview">
@@ -14,32 +25,32 @@ class Gallery extends React.Component {
       <div className="row">
         <div className="ui link cards">
           <Card
-            imgLink="http://localhost:8080/api/gallery/photos/7ba1bknru"
+            imgLink="http://localhost:8080/api/gallery/photos/Romain/converted-nv1hwqhi0.jpeg"
             uploaderName="le joli nom"
             imgDescription="Ceci n'est pas une description"
             uploadDate="12/23/2015"/>
           <Card
-            imgLink="http://localhost:8080/api/gallery/photos/qpmsednr3"
+            imgLink="http://localhost:8080/api/gallery/photos/Romain/converted-nv1hwqhi0.jpeg"
             uploaderName="le joli nom"
             imgDescription="Ceci n'est pas une description"
             uploadDate="12/23/2015"/>
           <Card
-            imgLink="http://localhost:8080/api/gallery/photos/7ba1bknru"
+            imgLink="http://localhost:8080/api/gallery/photos/Romain/converted-nv1hwqhi0.jpeg"
             uploaderName="le joli nom"
             imgDescription="Ceci n'est pas une description"
             uploadDate="12/23/2015"/>
           <Card
-            imgLink="http://localhost:8080/api/gallery/photos/qpmsednr3"
+            imgLink="http://localhost:8080/api/gallery/photos/Romain/converted-nv1hwqhi0.jpeg"
             uploaderName="le joli nom"
             imgDescription="Ceci n'est pas une description"
             uploadDate="12/23/2015"/>
           <Card
-            imgLink="http://localhost:8080/api/gallery/photos/qpmsednr3"
+            imgLink="http://localhost:8080/api/gallery/photos/Romain/converted-nv1hwqhi0.jpeg"
             uploaderName="le joli nom"
             imgDescription="Ceci n'est pas une description"
             uploadDate="12/23/2015"/>
           <Card
-            imgLink="http://localhost:8080/api/gallery/photos/qpmsednr3"
+            imgLink="http://localhost:8080/api/gallery/photos/Romain/nv1hwqhi0.jpeg"
             uploaderName="le joli nom"
             imgDescription="Ceci n'est pas une description"
             uploadDate="12/23/2015"/>
@@ -50,4 +61,12 @@ class Gallery extends React.Component {
   }
 }
 
-export default Gallery;
+
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    user: state.auth.user
+  };
+};
+
+export default connect (mapStateToProps)(Gallery);
