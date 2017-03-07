@@ -1,37 +1,7 @@
-.Header {
-  text-align: center;
+.main.container {
+  margin-top: 2em;
 }
 
-.Header-logo {
-  animation: Header-logo-spin infinite 20s linear;
-  height: 30px;
-}
-
-.Header-core {
-  background-color: #4a988a;
-  height: 170px;
-  padding: 30px;
-  color: white;
-  background-image: url("back_welcome.jpg");
-  background-position-y: -140px;
-}
-
-@keyframes Header-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-
-#navbar-primary .navbar-nav {
-//  background: #ededed;
-  width: 100%;
-  text-align: center;
-  > li {
-    display: inline-block;
-    float: none;
-    > a {
-      padding-left: 30px;
-      padding-right: 30px;
-    }
-  }
+.ui.menu .item img.logo {
+  margin-right: 1.5em;
 }

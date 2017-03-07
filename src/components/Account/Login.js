@@ -20,24 +20,23 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div className="login-container container">
-        <div className="panel">
-          <div className="panel-body">
-            <form onSubmit={this.handleLogin.bind(this)}>
+      <div className="ui container">
+        <div className="ui raised segment">
+
+            <form className="ui form" onSubmit={this.handleLogin.bind(this)}>
               <legend>Log In</legend>
-              <div className="form-group">
+              <div className="field">
                 <label htmlFor="email">Email</label>
                 <input type="email" name="email" id="email" placeholder="Email" autoFocus className="form-control" value={this.state.email} onChange={this.handleChange.bind(this)}/>
               </div>
-              <div className="form-group">
+              <div className="field">
                 <label htmlFor="password">Password</label>
                 <input type="password" name="password" id="password" placeholder="Password" className="form-control" value={this.state.password} onChange={this.handleChange.bind(this)}/>
               </div>
-              <div className="form-group"><Link to="/forgot"><strong>Forgot your password?</strong></Link></div>
-              <button type="submit" className="btn btn-success">Log in</button>
+              <div className="field"><Link to="/forgot"><strong>Forgot your password?</strong></Link></div>
+              <button type="submit" className="ui button">Log in</button>
             </form>
           </div>
-        </div>
         <p className="text-center">
           Don't have an account? <Link to="/signup"><strong>Sign up</strong></Link>
         </p>

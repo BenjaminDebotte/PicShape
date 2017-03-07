@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
+import { convertFile } from '../../actions/upload';
+
+
 import './Upload.css';
 
 import request from 'superagent';
@@ -11,8 +14,6 @@ class Upload extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            convertedImgLink: '',
-            baseImg: '',
             buttonText: 'Browse',
             onLoad: 'False'
         }
@@ -26,92 +27,75 @@ class Upload extends Component {
           let file = input.target.files[0];
 
           reader.onloadend = () => {
-            this.setState({baseImg: reader.result,convertedImgLink: reader.result});
-          }
+              console.log('On load end');
+              this.props.dispatch({
+                  type: 'LOAD_IMAGE_SUCCESS',
+                  convertedImgLink: reader.result,
+                  baseImg: reader.result
+            });
+        };
           reader.readAsDataURL(file)
     }
 
     _changeImage(input) {
-        if (document.getElementById("convertedImg").src === this.state.convertedImgLink)
-        {
-            document.getElementById("convertedImg").src = this.state.baseImg;
+
+        if (document.getElementById("convertedImg").src === this.props.convertedImgLink) {
+            document.getElementById("convertedImg").src = this.props.baseImg;
         }
-        else
-        {
-            document.getElementById("convertedImg").src = this.state.convertedImgLink;
+        else {
+            document.getElementById("convertedImg").src = this.props.convertedImgLink;
         }
     }
 
-    onClick() {
+    onClick(event) {
+        event.preventDefault();
 
         var files = document.getElementById('file_to_upload').files;
-        var iter = document.getElementById('iter');
-        var mode = document.getElementById('mode');
+        var iter = document.getElementById('iter').value;
+        var mode = document.getElementById('mode').value;
 
-        var formData = new FormData();
-
-        if (files.hasOwnProperty(0) && files[0] instanceof File)
-            formData.append('photo', files[0]);
-
-        formData.append('iter',iter.value);
-        formData.append('mode',mode.value);
-
-        console.log("iter " + iter.value);
-        console.log("mode " + mode.value);
-
-
-        this.setState({buttonText: 'Sending..'});
-
-        var req = request
-            .post('http://localhost:8080/api/picshape/convert')
-            .set('Authorization', 'token: ' + this.props.token)
-            .send(formData)
-
-        console.log(req);
-
-        req.end((err,res) => {
-              if(err) {
-                  console.log(err);
-              }
-              console.log(res);
-              var body = JSON.parse(res.text);
-              console.log("body : " + body);
-              this.setState({convertedImgLink: body.url});
-              console.log(this.state);
-              this.setState({buttonText: 'Browse..'});
-          });
+        if (files.hasOwnProperty(0) && files[0] instanceof File){
+            this.props.dispatch(convertFile(files[0], {iter: iter, mode: mode}, this.props.token));
+        }
 
 }
 
   render() {
-     const thumbnail = (this.state.convertedImgLink !== '' ? (
+     const thumbnail = (this.props.convertedImgLink !== '' ? (
                  <a className="thumbnail">
-                  <img className="img-responsive center-block" onClick={this._changeImage.bind(this)} id="convertedImg" src={this.state.convertedImgLink} width="70%" alt="" onMouseOver=""/>
+                    <img className="ui fluid image" onClick={this._changeImage.bind(this)} id="convertedImg" src={this.props.convertedImgLink} width="70%" alt="" onMouseOver=""/>
                  </a>
          ) : (
-             <div className="colonne_2 upload" >
+             <div>
                   <div className="fill"></div>
-                      <p>
+                      <h1>
                       Choose a picture !
-                      </p>
+                      </h1>
+
                   <div className="fill"></div>
-             </div>
+              </div>
             )
      );
 
     return (
-      <div className="panel panel-body container">
-            <div className="row preview">
+        <div className="ui container">
+        <div className="ui raised segment">
+            <div className="row">
                     {thumbnail}
+                    <label className="ui button"> {this.state.buttonText}
+                        <input className="form-control" onChange={this._handleImageChange.bind(this)} type='file' encType='multipart/form-data' id='file_to_upload' name='photo' style={{display: "none"}}/>
+                    </label>
             </div>
             <div className="row">
                 <div className="center-block">
-                    <form>
-                        <div className="form-group">
+                    <form className="ui form">
+                        <div className="field">
                             Iteration :
                             <input className="form-control" id="iter" type="number" min="1" max="500"/>
+                        </div>
+                        <div className="field">
                             Mode :
-                            <select className="form-control" id="mode">
+                            <select id="mode">
                               <option value="0">Combo</option>
                               <option value="1">Triangle</option>
                               <option value="2">Rectangle</option>
@@ -122,25 +106,16 @@ class Upload extends Component {
                               <option value="7">Rotatedellipse</option>
                               <option value="8">Polygon</option>
                             </select>
-
                         </div>
 
+                        <button className="ui button" onClick={this.onClick.bind(this)} >Send</button>
 
-                        <div className="row">
-                            <div className="col-md-6">
-                                <label className="btn btn-primary btn-file"> {this.state.buttonText}
-                                    <input className="form-control" onChange={this._handleImageChange.bind(this)} type='file' encType='multipart/form-data' id='file_to_upload' name='photo' style={{display: "none"}}/>
-                                </label>
-                            </div>
-                            <div className="col-md-6">
-                                <Button onClick={this.onClick.bind(this)} >Send</Button>
-                            </div>
-                        </div>
 
                         </form>
                 </div>
             </div>
-      </div>
+            </div>
+            </div>
     );
   }
 }
@@ -148,7 +123,9 @@ class Upload extends Component {
 const mapStateToProps = (state) => {
   return {
     token: state.auth.token,
-    messages: state.messages
+    messages: state.messages,
+    convertedImgLink: state.upload.convertedImgLink,
+    baseImg: state.upload.baseImg
   };
 };
 
