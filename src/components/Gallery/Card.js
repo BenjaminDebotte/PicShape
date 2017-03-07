@@ -5,34 +5,51 @@ class Card extends React.Component {
         super(props);
         this.state = {
             imgLink: '',
+            convertedImgLing: '',
+            gravatarLink: '',
             uploaderName: '',
-            imgDescription: '',
-            uploadDate: ''
         }
     }
 
+        _handleImageChange(input) {
+              console.log("_handleImageChange");
+              input.preventDefault();
+
+              let reader = new FileReader();
+              let file = input.target.files[0];
+
+              reader.onloadend = () => {
+                  console.log('On load end');
+                  this.props.dispatch({
+                      type: 'LOAD_IMAGE_SUCCESS',
+                      convertedImgLink: reader.result,
+                      baseImg: reader.result
+                });
+            };
+              reader.readAsDataURL(file)
+        }
+
+        _changeImage(input) {
+
+            if (input.currentTarget.src === this.props.convertedImgLink) {
+                input.currentTarget.src = this.props.imgLink;
+            }
+            else {
+                input.currentTarget.src = this.props.convertedImgLink;
+            }
+        }
+
   render() {
     return (
-      <div className="card">
-        <div className="image">
-          <img src={this.props.imgLink}/>
+      <div className="ui fluid card equal height grid">
+        <div className="ui fluid image">
+          <img id="cardImg" onClick={this._changeImage.bind(this)} src={this.props.imgLink}/>
         </div>
         <div className="content">
-          <div className="header">{this.props.uploaderName}</div>
-          <div className="meta">
-          </div>
-          <div className="description">
-            {this.props.imgDescription}
-          </div>
-        </div>
-        <div className="extra content">
-          <span className="right floated">
-            {this.props.uploadDate}
-          </span>
-          <span>
-            <i className="user icon"></i>
-            75 Friends
-          </span>
+        <a className="ui basic image label">
+          <img src={this.props.gravatarLink}/>
+          {this.props.uploaderName}
+        </a>
         </div>
       </div>
     );

@@ -6,7 +6,6 @@ export function getPictures(user) {
           type: 'CLEAR_MESSAGES'
         });
 
-
         console.log(user);
 
         return request

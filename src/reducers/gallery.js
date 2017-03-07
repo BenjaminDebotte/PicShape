@@ -8,7 +8,7 @@ export default function getPictures(state = initialState, action) {
   }
   switch (action.type) {
     case 'LOAD_PICTURES_SUCCESS':
-      console.log("LOAD_PICTURES_SUCCESS");
+      console.log('LOAD_PICTURES_SUCCESS');
       return Object.assign({}, state, {
           picturesList: action.picturesList
       });

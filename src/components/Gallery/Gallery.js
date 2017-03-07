@@ -4,56 +4,38 @@ import { connect } from 'react-redux'
 import Card from "./Card.js";
 import { getPictures } from '../../actions/gallery';
 
+import styles from './Gallery.css'
+
 class Gallery extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
 
-    componentDidMount(){
-      this.props.dispatch(getPictures(this.props.user))
+    componentWillMount(){
+      this.props.dispatch(getPictures(this.props.user));
     }
 
   render() {
-    const title =
-      <legend>Your own gallery</legend>;
+    const NoImgMessage = "You haven't uploaded any image yet.";
+    const title = <h1>My Gallery</h1>;
+    const cardsList = (this.props.picturesList!==''?  (this.props.picturesList.map((picture, index) => {
+        return (
+          <div className="column">
+            <Card
+            imgIndex={index}
+            imgLink={picture.photo}
+            convertedImgLink={picture.converted}
+            gravatarLink={this.props.user.gravatar}
+            uploaderName={this.props.user.name}/>
+          </div>
+        )
+      }
+    )
+  ):<h3>{NoImgMessage}</h3>);
     return (
-    <div className="panel panel-body container">
-      <div className="row preview">
+    <div className="ui container">
+      <div className="ui raised segment">
         {title}
-      </div>
-      <div className="row">
-        <div className="ui link cards">
-          <Card
-            imgLink="http://localhost:8080/api/gallery/photos/Romain/converted-nv1hwqhi0.jpeg"
-            uploaderName="le joli nom"
-            imgDescription="Ceci n'est pas une description"
-            uploadDate="12/23/2015"/>
-          <Card
-            imgLink="http://localhost:8080/api/gallery/photos/Romain/converted-nv1hwqhi0.jpeg"
-            uploaderName="le joli nom"
-            imgDescription="Ceci n'est pas une description"
-            uploadDate="12/23/2015"/>
-          <Card
-            imgLink="http://localhost:8080/api/gallery/photos/Romain/converted-nv1hwqhi0.jpeg"
-            uploaderName="le joli nom"
-            imgDescription="Ceci n'est pas une description"
-            uploadDate="12/23/2015"/>
-          <Card
-            imgLink="http://localhost:8080/api/gallery/photos/Romain/converted-nv1hwqhi0.jpeg"
-            uploaderName="le joli nom"
-            imgDescription="Ceci n'est pas une description"
-            uploadDate="12/23/2015"/>
-          <Card
-            imgLink="http://localhost:8080/api/gallery/photos/Romain/converted-nv1hwqhi0.jpeg"
-            uploaderName="le joli nom"
-            imgDescription="Ceci n'est pas une description"
-            uploadDate="12/23/2015"/>
-          <Card
-            imgLink="http://localhost:8080/api/gallery/photos/Romain/nv1hwqhi0.jpeg"
-            uploaderName="le joli nom"
-            imgDescription="Ceci n'est pas une description"
-            uploadDate="12/23/2015"/>
+        <div className="ui cards three column grid ">
+          {cardsList}
         </div>
       </div>
     </div>
@@ -65,7 +47,8 @@ class Gallery extends React.Component {
 const mapStateToProps = (state) => {
   console.log(state);
   return {
-    user: state.auth.user
+    user: state.auth.user,
+    picturesList: state.gallery.picturesList
   };
 };
 

@@ -38,13 +38,12 @@ class Upload extends Component {
     }
 
     _changeImage(input) {
-
-        if (document.getElementById("convertedImg").src === this.props.convertedImgLink) {
-            document.getElementById("convertedImg").src = this.props.baseImg;
-        }
-        else {
-            document.getElementById("convertedImg").src = this.props.convertedImgLink;
-        }
+      if (input.currentTarget.src === this.props.convertedImgLink) {
+          input.currentTarget.src = this.props.baseImg;
+      }
+      else {
+          input.currentTarget.src = this.props.convertedImgLink;
+      }
     }
 
     onClick(event) {
