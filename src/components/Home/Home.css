@@ -1,0 +1,9 @@
+hr { width: 30%;}
+h1 {font-size: 100px !important;}
+
+@keyframes transition {
+0%   { margin-top: -70px;opacity:0; }
+100% { margin-top: 0;opacity:1; }
+}
+
+.middle {opacity:0;animation: transition 1s ease-in-out 0.5s forwards;}
