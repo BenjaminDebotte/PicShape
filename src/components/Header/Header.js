@@ -28,11 +28,11 @@ class Header extends Component {
       return (
           <div className="ui inverted menu">
             <div className="ui container">
-                <Link className="header item" to="/">
-                <img className="logo" src="logo.ico"/>
+                <Link className="header item" to="/home">
+                <img className="logo logo-spin" src="logo.ico"/>
                       Picshape
                   </Link>
-                <Link className="item" to="/" activeStyle={active}>Home</Link>
+                <Link className="item" to="/upload" activeStyle={active}>Upload</Link>
                 { this.props.token ? loggedComponents : unloggedComponents }
                 <Link className="item" to="/about" activeStyle={active}>About</Link>
             </div>

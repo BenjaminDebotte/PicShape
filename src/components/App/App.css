@@ -1,0 +1,20 @@
+body {
+        background-image: url('../../images/back_welcome_picshape.jpg') !important;
+        background-size: cover !important;
+        background-position: center !important;
+}
+
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.ui.text.container {
+  max-width: 1000px !important;
+}
+.ui.segment {
+  opacity: 0.80 !important;
+}

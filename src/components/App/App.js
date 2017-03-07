@@ -12,7 +12,7 @@ class App extends Component {
     return (
       <div>
         <Header/>
-        <div className="ui main text container">
+        <div className="ui main text middle container">
             <Messages messages={this.props.messages}/>
 
             {this.props.children}

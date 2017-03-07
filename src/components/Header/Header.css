@@ -5,3 +5,12 @@
 .ui.menu .item img.logo {
   margin-right: 1.5em;
 }
+
+.logo-spin {
+  animation: Header-logo-spin infinite 10s linear;
+}
+
+@keyframes Header-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
