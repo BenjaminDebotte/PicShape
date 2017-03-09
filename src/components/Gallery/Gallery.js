@@ -20,25 +20,23 @@ class Gallery extends React.Component {
         return (
           <div className="column">
             <Card
-            imgIndex={index}
             imgLink={picture.photo}
             convertedImgLink={picture.converted}
             gravatarLink={this.props.user.gravatar}
-            uploaderName={this.props.user.name}/>
+            uploaderName={this.props.user.name}
+            index={index}/>
           </div>
         )
       }
     )
   ):<h3>{NoImgMessage}</h3>);
     return (
-    <div className="ui container">
       <div className="ui raised segment">
         {title}
         <div className="ui cards three column grid ">
           {cardsList}
         </div>
       </div>
-    </div>
     );
   }
 }
