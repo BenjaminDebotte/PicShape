@@ -24,13 +24,6 @@ describe('components', function() {
         });
   });
 
-  describe('<Profile />', function() {
-    it('renders correctly', function() {
-      var tree = renderer.create(<Profile />).toJSON();
-      expect(tree).toMatchSnapshot();
-        });
-  });
-
   describe('<Reset />', function() {
     it('renders correctly', function() {
       var tree = renderer.create(<Reset />).toJSON();
