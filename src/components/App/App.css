@@ -1,7 +1,7 @@
 body {
         background-image: url('../../images/back_welcome_picshape.jpg') !important;
         background-size: cover !important;
-        background-position: center !important;
+        background-position: center fixed !important;
 }
 
 .middle {

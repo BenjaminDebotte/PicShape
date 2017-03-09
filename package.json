@@ -10,7 +10,8 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "react-scripts": "0.6.1"
+    "react-scripts": "0.6.1",
+    "react-test-renderer": "^15.4.2"
   },
   "dependencies": {
     "moment": "^2.15.2",

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { updateProfile, changePassword, deleteAccount } from '../../actions/auth';
 
-class Profile extends React.Component {
+export class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

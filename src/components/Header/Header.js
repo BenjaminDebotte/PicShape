@@ -5,7 +5,7 @@ import { logout } from '../../actions/auth';
 
 import './Header.css';
 
-class Header extends Component {
+export class Header extends Component {
 
     handleLogout(event) {
       event.preventDefault();
@@ -41,14 +41,13 @@ class Header extends Component {
 
       );
     }
-    }
+}
 
+const mapStateToProps = (state) => {
+  return {
+    token: state.auth.token,
+    user: state.auth.user
+  };
+};
 
-    const mapStateToProps = (state) => {
-      return {
-        token: state.auth.token,
-        user: state.auth.user
-      };
-    };
-
-    export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps)(Header);

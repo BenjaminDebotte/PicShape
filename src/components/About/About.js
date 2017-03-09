@@ -4,7 +4,7 @@ import './About.css';
 import baseImg from './548x430.jpg';
 import convertedImg from './548x430Shaped.jpg';
 
-class About extends Component {
+export class About extends Component {
 
   constructor(props) {
       super(props);

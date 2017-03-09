@@ -2,3 +2,9 @@
     max-height: 540px;
     margin-bottom: 10px;
 }
+
+.preview{
+    border-style: dashed;
+    height: 400px;
+    padding-top: 20%;
+  }

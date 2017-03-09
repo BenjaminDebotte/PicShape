@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { signup } from '../../actions/auth';
 
-class Signup extends React.Component {
+export class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = { name: '', email: '', password: '' };

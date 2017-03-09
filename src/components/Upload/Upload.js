@@ -10,7 +10,7 @@ import request from 'superagent';
 import Button from 'react-button';
 
 
-class Upload extends Component {
+export class Upload extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -66,15 +66,21 @@ class Upload extends Component {
                  </a>
          ) : (
              <div>
-                  <div className="fill img"></div>
-                      <h1>
+                  <div className="fill img">
+                      <h2 className="preview">
                       Choose a picture !
-                      </h1>
-
-                  <div className="fill"></div>
+                      </h2>
+                  </div>
               </div>
             )
      );
+
+     const valid_button = (
+       <button className="ui button" onClick={this.onClick.bind(this)} >Send</button>
+
+
+     );
+
 
     return (
         <div className="ui container">
@@ -107,7 +113,8 @@ class Upload extends Component {
                             </select>
                         </div>
 
-                        <button className="ui button" onClick={this.onClick.bind(this)} >Send</button>
+
+                        {valid_button}
 
 
                         </form>

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { forgotPassword } from '../../actions/auth';
 
-class Forgot extends React.Component {
+export class Forgot extends React.Component {
   constructor(props) {
     super(props);
     this.state = { email: '' };

@@ -6,7 +6,7 @@ import Messages from '../Messages/Messages';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
-class App extends Component {
+export class App extends Component {
 
   render() {
     return (
