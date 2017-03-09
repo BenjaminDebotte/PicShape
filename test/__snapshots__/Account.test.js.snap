@@ -1,0 +1,255 @@
+exports[`components <Forgot /> renders correctly 1`] = `
+<div
+  className="ui container">
+  <div
+    className="ui raised segment">
+    <form
+      className="ui form"
+      onSubmit={[Function bound handleForgot]}>
+      <div
+        className="field">
+        <p>
+          Enter your email address below and well send you password reset instructions.
+        </p>
+        <label
+          htmlFor="email">
+          Email
+        </label>
+        <input
+          autoFocus={true}
+          className="form-control"
+          id="email"
+          name="email"
+          onChange={[Function bound handleChange]}
+          placeholder="Email"
+          type="email"
+          value="" />
+      </div>
+      <button
+        className="ui button"
+        type="submit">
+        Reset Password
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`components <Login /> renders correctly 1`] = `
+<div
+  className="ui container">
+  <div
+    className="ui raised segment">
+    <form
+      className="ui form"
+      onSubmit={[Function bound handleLogin]}>
+      <legend>
+        Log In
+      </legend>
+      <div
+        className="field">
+        <label
+          htmlFor="email">
+          Email
+        </label>
+        <input
+          autoFocus={true}
+          className="form-control"
+          id="email"
+          name="email"
+          onChange={[Function bound handleChange]}
+          placeholder="Email"
+          type="email"
+          value="" />
+      </div>
+      <div
+        className="field">
+        <label
+          htmlFor="password">
+          Password
+        </label>
+        <input
+          className="form-control"
+          id="password"
+          name="password"
+          onChange={[Function bound handleChange]}
+          placeholder="Password"
+          type="password"
+          value="" />
+      </div>
+      <div
+        className="field">
+        <a
+          onClick={[Function bound handleClick]}
+          style={Object {}}>
+          <strong>
+            Forgot your password?
+          </strong>
+        </a>
+      </div>
+      <button
+        className="ui button"
+        type="submit">
+        Log in
+      </button>
+    </form>
+  </div>
+  <p
+    className="text-center">
+    Don\'t have an account? 
+    <a
+      onClick={[Function bound handleClick]}
+      style={Object {}}>
+      <strong>
+        Sign up
+      </strong>
+    </a>
+  </p>
+</div>
+`;
+
+exports[`components <Reset /> renders correctly 1`] = `
+<div
+  className="ui container">
+  <div
+    className="ui raised segment">
+    <form
+      className="ui form"
+      onSubmit={[Function bound handleReset]}>
+      <legend>
+        Reset Password
+      </legend>
+      <div
+        className="field">
+        <label
+          htmlFor="password">
+          New Password
+        </label>
+        <input
+          autoFocus={true}
+          className="form-control"
+          id="password"
+          name="password"
+          onChange={[Function bound handleChange]}
+          placeholder="New password"
+          type="password"
+          value="" />
+      </div>
+      <div
+        className="field">
+        <label
+          htmlFor="confirm">
+          Confirm Password
+        </label>
+        <input
+          className="form-control"
+          id="confirm"
+          name="confirm"
+          onChange={[Function bound handleChange]}
+          placeholder="Confirm password"
+          type="password"
+          value="" />
+      </div>
+      <div
+        className="field">
+        <button
+          className="btn btn-success"
+          type="submit">
+          Change Password
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`components <Signup /> renders correctly 1`] = `
+<div
+  className="ui container">
+  <div
+    className="ui raised segment">
+    <form
+      className="ui form"
+      onSubmit={[Function bound handleSignup]}>
+      <legend>
+        Create an account
+      </legend>
+      <div
+        className="field">
+        <label
+          htmlFor="name">
+          Nickname
+        </label>
+        <input
+          autoFocus={true}
+          className="form-control"
+          id="name"
+          name="name"
+          onChange={[Function bound handleChange]}
+          placeholder="Name"
+          type="text"
+          value="" />
+      </div>
+      <div
+        className="field">
+        <label
+          htmlFor="email">
+          Email
+        </label>
+        <input
+          className="form-control"
+          id="email"
+          name="email"
+          onChange={[Function bound handleChange]}
+          placeholder="Email"
+          type="email"
+          value="" />
+      </div>
+      <div
+        className="field">
+        <label
+          htmlFor="password">
+          Password
+        </label>
+        <input
+          className="form-control"
+          id="password"
+          name="password"
+          onChange={[Function bound handleChange]}
+          placeholder="Password"
+          type="password"
+          value="" />
+      </div>
+      <div
+        className="field">
+        <small
+          className="text-muted">
+          By signing up, you agree to the 
+          <a
+            onClick={[Function bound handleClick]}
+            style={Object {}}>
+            Terms of Service
+          </a>
+          .
+        </small>
+      </div>
+      <button
+        className="ui button"
+        type="submit">
+        Create an account
+      </button>
+    </form>
+  </div>
+  <p
+    className="text-center">
+    Already have an account? 
+    <a
+      onClick={[Function bound handleClick]}
+      style={Object {}}>
+      <strong>
+        Log in
+      </strong>
+    </a>
+  </p>
+</div>
+`;

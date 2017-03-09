@@ -1,0 +1,106 @@
+exports[`components <Upload /> renders correctly 1`] = `
+<div
+  className="ui container">
+  <div
+    className="ui raised segment">
+    <div
+      className="row">
+      <a
+        className="thumbnail">
+        <img
+          alt=""
+          className="ui fluid image img"
+          id="convertedImg"
+          onClick={[Function bound _changeImage]}
+          onMouseOver=""
+          src={undefined}
+          width="100%" />
+      </a>
+      <label
+        className="ui button">
+         
+        Browse
+        <input
+          className="form-control"
+          encType="multipart/form-data"
+          id="file_to_upload"
+          name="photo"
+          onChange={[Function bound _handleImageChange]}
+          style={
+            Object {
+              "display": "none"
+            }
+          }
+          type="file" />
+      </label>
+    </div>
+    <div
+      className="row">
+      <div
+        className="center-block">
+        <form
+          className="ui form">
+          <div
+            className="field">
+            Iteration :
+            <input
+              className="form-control"
+              id="iter"
+              max="500"
+              min="1"
+              type="number" />
+          </div>
+          <div
+            className="field">
+            Mode :
+            <select
+              id="mode">
+              <option
+                value="0">
+                Combo
+              </option>
+              <option
+                value="1">
+                Triangle
+              </option>
+              <option
+                value="2">
+                Rectangle
+              </option>
+              <option
+                value="3">
+                Ellipse
+              </option>
+              <option
+                value="4">
+                Circle
+              </option>
+              <option
+                value="5">
+                Rotatedrect
+              </option>
+              <option
+                value="6">
+                Beziers
+              </option>
+              <option
+                value="7">
+                Rotatedellipse
+              </option>
+              <option
+                value="8">
+                Polygon
+              </option>
+            </select>
+          </div>
+          <button
+            className="ui button"
+            onClick={[Function bound onClick]}>
+            Send
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;

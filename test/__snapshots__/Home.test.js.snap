@@ -1,0 +1,16 @@
+exports[`components <Home /> renders correctly 1`] = `
+<div
+  className="ui">
+  <h1
+    className="ui huge header inverted">
+    PicShape
+  </h1>
+  <hr />
+  <a
+    className="ui button blue"
+    onClick={[Function bound handleClick]}
+    style={Object {}}>
+     Go! 
+  </a>
+</div>
+`;
