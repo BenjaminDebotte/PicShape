@@ -78,7 +78,7 @@ class Upload extends Component {
 
     return (
         <div className="ui container">
-        <div className="ui raised segment">
+        <div className="ui raised center aligned segment">
             <div className="row">
                     {thumbnail}
                     <label className="ui button"> {this.state.buttonText}

@@ -1,6 +1,5 @@
 .ui.inverted.vertical.fixed.footer.segment {
-    position: fixed;
     bottom:0;
     width: 100%;
-
+    margin-top: 60px;
 }
