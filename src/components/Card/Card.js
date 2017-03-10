@@ -1,19 +1,11 @@
 import React from 'react';
 import Modal from 'react-modal';
+import { connect } from 'react-redux'
 
-import styles from './Gallery.css'
+import { removePicture } from '../../actions/card';
 
-  const customStyles = {
-    overlay: {
+import styles from './Card.css'
 
-    },
-   content: {
-     top                   : '1%',
-     left                  : '1%',
-     right                 : '1%',
-     bottom                : '1%',
-   }
- };
 class Card extends React.Component {
 
     constructor(props) {
@@ -27,19 +19,17 @@ class Card extends React.Component {
             modalIsOpen: false
         }
         this.cardImgRef="cardImg" + this.props.index;
+        console.log("converted : " + this.props.convertedImgLink + "\nbase: " + this.props.imgLink);
         this.openModal = this.openModal.bind(this);
         this.afterOpenModal = this.afterOpenModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
     }
 
         openModal(input) {
-
           this.setState({modalIsOpen: true});
         }
 
         afterOpenModal() {
-          // references are now sync'd and can be accessed.
-          this.refs.subtitle.style.color = 'black';
         }
 
         closeModal() {
@@ -67,14 +57,15 @@ class Card extends React.Component {
 
         _changeImage(input) {
           this.refs[this.cardImgRef].src=(this.refs[this.cardImgRef].src===this.props.convertedImgLink?this.props.imgLink:this.props.convertedImgLink);
-            /*if (input.currentTarget.src === this.props.convertedImgLink) {
-                input.currentTarget.src = this.props.imgLink;
-            }
-            else {
-                input.currentTarget.src = this.props.convertedImgLink;
-            }*/
         }
 
+        _changeImageModal(input) {
+          input.currentTarget.src=(input.currentTarget.src===this.props.convertedImgLink?this.props.imgLink:this.props.convertedImgLink);
+        }
+
+        _removeImage(input) {
+          this.props.dispatch(removePicture(this.props.imgLink, this.props.token));
+        }
 
   render() {
     return (
@@ -82,23 +73,28 @@ class Card extends React.Component {
         <div className="ui fluid image">
           <img onClick={this.openModal.bind(this)} ref={this.cardImgRef} src={this.props.convertedImgLink}/>
         </div>
-        <div className="content">
-          <a className="ui basic image buttons label">
+        <div className="ui content three columns centered">
+          <button className="ui icon left floated button toExchange " onClick={this._changeImage.bind(this)} title="Exchange picture">
+            <i className="green exchange icon"></i>
+          </button>
+          <a className="ui image centered buttons label">
             <img src={this.props.gravatarLink}/>
             {this.props.uploaderName}
-          </a>
-          <button className="ui icon right floated button toExchange"  onClick={this._changeImage.bind(this)} title="Exchange image">
-            <i className="exchange icon"></i>
+          </a><button className="ui icon right floated button toRemove " onClick={this._removeImage.bind(this)} title="Remove picture">
+            <i className="red remove icon"></i>
           </button>
         </div>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
-          style={customStyles}
+          className="modalStyle"
+          overlayClassName="modalOverlayStyle"
+          portalClassName=""
           contentLabel="Example Modal">
-          <div className="ui container ">
-            <img className="ui fluid image fullDiv" src={(this.refs[this.cardImgRef]!==undefined?this.refs[this.cardImgRef].src:'Nothing to see here.')}/>
+          <div className="ui container centered">
+            <img className="ui fluid rounded image content img-responsive" src={(this.refs[this.cardImgRef]!==undefined?this.refs[this.cardImgRef].src:'Nothing to see here.')}
+            onClick={this._changeImageModal.bind(this)}/>
           </div>
         </Modal>
       </div>
@@ -106,4 +102,11 @@ class Card extends React.Component {
   }
 }
 
-export default Card;
+const mapStateToProps = (state, ownProps) => {
+  console.log(state);
+  return {
+    token: state.auth.token,
+  };
+};
+
+export default connect (mapStateToProps)(Card);
