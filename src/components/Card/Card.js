@@ -1,8 +1,5 @@
 import React from 'react';
 import Modal from 'react-modal';
-import { connect } from 'react-redux'
-
-import { removePicture } from '../../actions/card';
 
 import styles from './Card.css'
 
@@ -16,10 +13,10 @@ class Card extends React.Component {
             gravatarLink: '',
             uploaderName: '',
             index: '',
-            modalIsOpen: false
+            modalIsOpen: false,
+            onRemoveClicked: ''
         }
         this.cardImgRef="cardImg" + this.props.index;
-        console.log("converted : " + this.props.convertedImgLink + "\nbase: " + this.props.imgLink);
         this.openModal = this.openModal.bind(this);
         this.afterOpenModal = this.afterOpenModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
@@ -63,8 +60,10 @@ class Card extends React.Component {
           input.currentTarget.src=(input.currentTarget.src===this.props.convertedImgLink?this.props.imgLink:this.props.convertedImgLink);
         }
 
-        _removeImage(input) {
-          this.props.dispatch(removePicture(this.props.imgLink, this.props.token));
+        _removeClicked(input){
+          if(this.refs[this.cardImgRef]!==undefined){
+            this.props.onRemoveClicked(this.refs[this.cardImgRef].src);
+          }
         }
 
   render() {
@@ -80,7 +79,7 @@ class Card extends React.Component {
           <a className="ui image centered buttons label">
             <img src={this.props.gravatarLink}/>
             {this.props.uploaderName}
-          </a><button className="ui icon right floated button toRemove " onClick={this._removeImage.bind(this)} title="Remove picture">
+          </a><button className="ui icon right floated button toRemove " onClick={this._removeClicked.bind(this)} title="Remove picture">
             <i className="red remove icon"></i>
           </button>
         </div>
@@ -93,7 +92,7 @@ class Card extends React.Component {
           portalClassName=""
           contentLabel="Example Modal">
           <div className="ui container centered">
-            <img className="ui fluid rounded image content img-responsive" src={(this.refs[this.cardImgRef]!==undefined?this.refs[this.cardImgRef].src:'Nothing to see here.')}
+            <img className="ui fluid rounded image img" src={(this.refs[this.cardImgRef]!==undefined?this.refs[this.cardImgRef].src:'Nothing to see here.')}
             onClick={this._changeImageModal.bind(this)}/>
           </div>
         </Modal>
@@ -102,11 +101,4 @@ class Card extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  console.log(state);
-  return {
-    token: state.auth.token,
-  };
-};
-
-export default connect (mapStateToProps)(Card);
+export default Card;

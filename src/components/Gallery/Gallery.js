@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from 'react-redux'
 
 import Card from "../Card/Card.js";
-import { getPictures } from '../../actions/gallery';
+import { getPictures, removePicture } from '../../actions/gallery';
 
 import styles from './Gallery.css'
 
@@ -11,6 +11,12 @@ class Gallery extends React.Component {
 
     componentWillMount(){
       this.props.dispatch(getPictures(this.props.user));
+    }
+
+    _removePicture(src){
+      console.log("delete dans Gallery : " + src);
+      this.props.dispatch(removePicture(src, this.props.token));
+      this.forceUpdate();
     }
 
 
@@ -25,7 +31,8 @@ class Gallery extends React.Component {
             convertedImgLink={picture.converted}
             gravatarLink={this.props.user.gravatar}
             uploaderName={this.props.user.name}
-            index={index}/>
+            index={index}
+            onRemoveClicked={(src) => this._removePicture(src)}/>
           </div>
 
         )
@@ -47,8 +54,10 @@ class Gallery extends React.Component {
 const mapStateToProps = (state) => {
   return {
     user: state.auth.user,
-    picturesList: state.gallery.picturesList
-  };
+    token: state.auth.token,
+    picturesList: state.gallery.picturesList,
+    messages: state.messages
+  }
 };
 
 export default connect (mapStateToProps)(Gallery);

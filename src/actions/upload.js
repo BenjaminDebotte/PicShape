@@ -15,7 +15,7 @@ export function convertFile(file, config, token) {
         formData.append('iter', config.iter);
 
         return request
-        .post('http://localhost:8080/api/picshape/convert')
+        .post('http://picshape-engine-develop.herokuapp.com/api/picshape/convert')
         .set('Authorization', 'token: ' + token)
         .send(formData)
         .then((res) => {

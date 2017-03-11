@@ -8,7 +8,7 @@ export function login(email, password) {
         type: 'CLEAR_MESSAGES'
       });
 
-    return fetch('http://localhost:8080/api/account/login', {
+    return fetch('http://picshape-engine-develop.herokuapp.com/api/account/login', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -43,7 +43,7 @@ export function signup(name, email, password) {
     dispatch({
       type: 'CLEAR_MESSAGES'
     });
-    return fetch('http://localhost:8080/api/account/signup', {
+    return fetch('http://picshape-engine-develop.herokuapp.com/api/account/signup', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name: name, email: email, password: password })
@@ -81,7 +81,7 @@ export function forgotPassword(email) {
     dispatch({
       type: 'CLEAR_MESSAGES'
     });
-    return fetch('http://localhost:8080/api/account/forgot', {
+    return fetch('http://picshape-engine-develop.herokuapp.com/api/account/forgot', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: email })
@@ -110,7 +110,7 @@ export function resetPassword(password, confirm, pathToken) {
     dispatch({
       type: 'CLEAR_MESSAGES'
     });
-    return fetch(`http://localhost:8080/api/account/reset/${pathToken}`, {
+    return fetch(`http://picshape-engine-develop.herokuapp.com/api/account/reset/${pathToken}`, {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -143,7 +143,7 @@ export function updateProfile(state, token) {
     dispatch({
       type: 'CLEAR_MESSAGES'
     });
-    return fetch('http://localhost:8080/api/account', {
+    return fetch('http://picshape-engine-develop.herokuapp.com/api/account', {
       method: 'put',
       headers: {
         'Content-Type': 'application/json',
@@ -181,7 +181,7 @@ export function changePassword(password, confirm, token) {
     dispatch({
       type: 'CLEAR_MESSAGES'
     });
-    return fetch('http://localhost:8080/api/account', {
+    return fetch('http://picshape-engine-develop.herokuapp.com/api/account', {
       method: 'put',
       headers: {
         'Content-Type': 'application/json',
@@ -216,7 +216,7 @@ export function deleteAccount(token) {
     dispatch({
       type: 'CLEAR_MESSAGES'
     });
-    return fetch('http://localhost:8080/api/account/', {
+    return fetch('http://picshape-engine-develop.herokuapp.com/api/account/', {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
