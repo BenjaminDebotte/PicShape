@@ -7,18 +7,15 @@ export function getPictures(user) {
           type: 'CLEAR_MESSAGES'
         });
 
-        console.log(user);
 
         return request
-        .get('http://picshape-engine-develop.herokuapp.com/api/gallery/photos/' + user.name)
+        .get('http://localhost:8080/api/gallery/photos/' + user.name)
         .then((res) => {
-          console.log(res.body)
             dispatch({
                 type: 'LOAD_PICTURES_SUCCESS',
                 picturesList: res.body
             });
         }, (err) => {
-            console.log(err);
         });
     };
   }
@@ -27,24 +24,21 @@ export function removePicture(imgLink, token) {
           dispatch({
             type: 'CLEAR_MESSAGES'
           });
-          console.log(imgLink);
           return request
           .delete(imgLink)
           .set('Authorization', 'token: ' + token)
           .then((response) => {
+            let JSONResponse = JSON.parse(response.text);
             if (response.ok) {
-              let JSONResponse = JSON.parse(response.text);
               dispatch({
                 type: 'REMOVE_PICTURE_SUCCESS',
                 messages: Array.isArray(JSONResponse) ? JSONResponse : [JSONResponse]
               });
-              browserHistory.push('/gallery');
             } else {
               dispatch({
-                type: 'REMOVE_PICTURE_SUCCESS',
-                messages: response.body.errorMessage
+                type: 'REMOVE_PICTURE_FAILURE',
+                messages:  Array.isArray(JSONResponse) ? JSONResponse : [JSONResponse]
               });
-              browserHistory.push('/gallery');
             }
           });
       };

@@ -14,7 +14,6 @@ export default function messages(state = {}, action) {
     case 'CHANGE_PASSWORD_SUCCESS':
     case 'RESET_PASSWORD_SUCCESS':
     case 'REMOVE_PICTURE_SUCCESS':
-      console.log(action.messages);
       return {
         success: action.messages
       };

@@ -13,10 +13,11 @@ class Gallery extends React.Component {
       this.props.dispatch(getPictures(this.props.user));
     }
 
-    _removePicture(src){
-      console.log("delete dans Gallery : " + src);
-      this.props.dispatch(removePicture(src, this.props.token));
-      this.forceUpdate();
+
+    _removePicture(src, callback){
+      this.props.dispatch(removePicture(src, this.props.token)).then(() => {
+           this.props.dispatch(getPictures(this.props.user));
+      });
     }
 
 
@@ -32,7 +33,9 @@ class Gallery extends React.Component {
             gravatarLink={this.props.user.gravatar}
             uploaderName={this.props.user.name}
             index={index}
-            onRemoveClicked={(src) => this._removePicture(src)}/>
+            onRemoveClicked={(src) => this._removePicture(src, () => {
+              this.props.dispatch(getPictures(this.props.user));
+            })}/>
           </div>
 
         )

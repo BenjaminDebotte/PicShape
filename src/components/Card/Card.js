@@ -35,14 +35,12 @@ class Card extends React.Component {
 
 
         _handleImageChange(input) {
-              console.log("_handleImageChange");
               input.preventDefault();
 
               let reader = new FileReader();
               let file = input.target.files[0];
 
               reader.onloadend = () => {
-                  console.log('On load end');
                   this.props.dispatch({
                       type: 'LOAD_IMAGE_SUCCESS',
                       convertedImgLink: reader.result,

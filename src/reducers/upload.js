@@ -13,7 +13,6 @@ export default function upload(state = initialState, action) {
         convertedImgLink: action.convertedImgLink,
     });
     case 'LOAD_IMAGE_SUCCESS':
-      console.log("LOAD_IMAGE_SUCCESS");
       return Object.assign({}, state, {
           baseImg: action.baseImg,
           convertedImgLink: action.convertedImgLink
