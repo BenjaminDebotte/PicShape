@@ -19,7 +19,7 @@ export function getPictures(user) {
         });
     };
   }
-export function removePicture(imgLink, token) {
+export function removePicture(imgLink, token, user) {
       return (dispatch) => {
           dispatch({
             type: 'CLEAR_MESSAGES'
@@ -30,6 +30,7 @@ export function removePicture(imgLink, token) {
           .then((response) => {
             let JSONResponse = JSON.parse(response.text);
             if (response.ok) {
+              dispatch(getPictures(user));
               dispatch({
                 type: 'REMOVE_PICTURE_SUCCESS',
                 messages: Array.isArray(JSONResponse) ? JSONResponse : [JSONResponse]

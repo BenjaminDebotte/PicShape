@@ -15,9 +15,7 @@ class Gallery extends React.Component {
 
 
     _removePicture(src, callback){
-      this.props.dispatch(removePicture(src, this.props.token)).then(() => {
-           this.props.dispatch(getPictures(this.props.user));
-      });
+      this.props.dispatch(removePicture(src, this.props.token, this.props.user));
     }
 
 
