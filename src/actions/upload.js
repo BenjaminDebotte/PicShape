@@ -21,7 +21,7 @@ export function convertFile(file, config, token) {
         .then((res) => {
             dispatch({
                 type: 'UPLOAD_SUCCESS',
-                convertedImgLink: res.body.url
+                convertedImgLink: res.body.converted
             });
         }, (err) => {
             console.log(err);
