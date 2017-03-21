@@ -12,7 +12,7 @@ class Home extends Component {
 
   render() {
       return (
-                <div className="ui">
+                <div className="ui middle">
                   <h1 className="ui huge header inverted">PicShape</h1>
                   <hr></hr>
                   <Link className="ui button blue" to="/upload"> Go! </Link>
