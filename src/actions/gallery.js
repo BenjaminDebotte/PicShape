@@ -10,7 +10,7 @@ export function getPictures(user) {
         console.log(user);
 
         return request
-        .get('http://picshape-engine-develop.herokuapp.com/api/gallery/photos/' + user.name)
+        .get(process.env.REACT_APP_BACKEND_URI + '/api/gallery/photos/' + user.name)
         .then((res) => {
           console.log(res.body)
             dispatch({

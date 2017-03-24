@@ -42,7 +42,7 @@ export default function getRoutes(store) {
             <Route path='/reset/:token' component={Reset} onEnter={skipIfAuthenticated}  onLeave={clearMessages}/>
             <Route path="/about" component={About} onLeave={clearMessages}/>
             <Route path="/home" components={Home} onLeave={clearMessages}/>
-            <Route path="/upload" components={Upload} onLeave={clearMessages}/>
+            <Route path="/upload" components={Upload} onEnter={ensureAuthenticated} onLeave={clearMessages}/>
             <Route path="*" component={NotFound}/>
         </Route>
     );
