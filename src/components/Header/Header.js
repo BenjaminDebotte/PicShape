@@ -21,6 +21,7 @@ class Header extends Component {
         ]);
 
         const loggedComponents = ([
+            <Link className="item" to="/wall">Wall</Link>,
             <Link className="item" to="/gallery">My Gallery</Link>,
             <Link className="item" to="/account">My Account</Link>,
             <Link className="item" onClick={this.handleLogout.bind(this)}>Logout</Link>

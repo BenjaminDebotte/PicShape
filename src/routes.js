@@ -11,6 +11,7 @@ import Forgot from './components/Account/Forgot';
 import Reset from './components/Account/Reset';
 import About from './components/About/About';
 import Home from './components/Home/Home';
+import Wall from './components/Wall/Wall';
 
 
 export default function getRoutes(store) {
@@ -38,6 +39,7 @@ export default function getRoutes(store) {
             <Route path="/signup" component={Signup} onEnter={skipIfAuthenticated} onLeave={clearMessages} />
             <Route path="/account" component={Profile} onEnter={ensureAuthenticated} onLeave={clearMessages} />
             <Route path="/gallery" component={Gallery} onEnter={ensureAuthenticated} onLeave={clearMessages} />
+            <Route path="/wall" component={Wall} onEnter={ensureAuthenticated} onLeave={clearMessages} />
             <Route path="/forgot" component={Forgot} onEnter={skipIfAuthenticated} onLeave={clearMessages} />
             <Route path='/reset/:token' component={Reset} onEnter={skipIfAuthenticated}  onLeave={clearMessages}/>
             <Route path="/about" component={About} onLeave={clearMessages}/>
