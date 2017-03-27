@@ -30,7 +30,7 @@ class Wall extends React.Component {
             imgLink={picture.photo}
             convertedImgLink={picture.converted}
             gravatarLink={this.props.user.gravatar}
-            uploaderName={this.props.user.name}
+            uploaderName={picture.user}
             index={index}
             onRemoveClicked={(src) => this._removePicture(src)}/>
           </div>
