@@ -22,7 +22,7 @@ class Wall extends React.Component {
 
   render() {
     const NoImgMessage = "There are no uploaded image yet.";
-    const title = <h2>Wall of shapes</h2>;
+    const title = <h1>Wall of shapes</h1>;
     const cardsList = (this.props.picturesList.length>>0?(this.props.picturesList.map((picture, index) => {
         return (
           <div className="column">
